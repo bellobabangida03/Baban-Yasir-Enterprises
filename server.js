@@ -1322,13 +1322,15 @@ function requireCustomerSession(req, res, next) {
 // PRODUCT DATA
 // ========================================
 
-const productsFile = path.join(__dirname, "data", "products.json");
-const categoriesFile = path.join(__dirname, "data", "categories.json");
-const unitsFile = path.join(__dirname, "data", "units.json");
-const adminsFile = path.join(__dirname, "data", "admins.json");
-const historyFile = path.join(__dirname, "data", "history.json");
-const customersFile =
-    path.join(__dirname, "data", "customers.json");
+const dataDir =
+    process.env.DATA_DIR || path.join(__dirname, "data");
+
+const productsFile = path.join(dataDir, "products.json");
+const categoriesFile = path.join(dataDir, "categories.json");
+const unitsFile = path.join(dataDir, "units.json");
+const adminsFile = path.join(dataDir, "admins.json");
+const historyFile = path.join(dataDir, "history.json");
+const customersFile = path.join(dataDir, "customers.json");
 
 const products = JSON.parse(fs.readFileSync(productsFile, "utf8"));
 const categories = JSON.parse(fs.readFileSync(categoriesFile, "utf8"));
@@ -5101,6 +5103,6 @@ app.get("/api/admin/session", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
