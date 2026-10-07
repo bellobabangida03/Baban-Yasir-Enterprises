@@ -1,0 +1,6 @@
+.env
+node_modules/
+
+data/admins.json
+data/customers.json
+data/history.json

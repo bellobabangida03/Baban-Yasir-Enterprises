@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Import Products - BABAN YASIR ENTERPRISE
+    </title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <main class="admin-page">
+
+        <section class="admin-section">
+
+            <div class="management-header">
+
+                <div>
+                    <h1>
+                        Bulk Product Import
+                    </h1>
+
+                    <p>
+                        Import building-material products
+                        from a CSV file.
+                    </p>
+                </div>
+
+                <button type="button" class="admin-btn" id="back-to-dashboard-button">
+                    Back to Dashboard
+                </button>
+
+            </div>
+
+
+            <div class="admin-modal-note">
+
+                <strong>
+                    Required CSV columns:
+                </strong>
+
+                <br><br>
+
+                Product Name, Category, Unit
+
+                <br><br>
+
+                Example:
+
+                <br>
+
+                Ordinary Portland Cement,
+                Construction,
+                Bag
+
+                <br>
+
+                Brick Trowel,
+                Construction Tools,
+                Piece
+
+                <br>
+
+                Nail - 1 inch,
+                Fasteners,
+                Box
+
+            </div>
+
+
+            <form id="product-import-form" class="admin-modal-form">
+
+                <label>
+
+                    Select CSV File
+
+                    <input type="file" id="product-import-file" accept=".csv,text/csv" required>
+
+                </label>
+
+
+                <div class="admin-modal-actions">
+
+                    <button type="submit" class="admin-modal-button-primary">
+                        Validate & Preview
+                    </button>
+
+                    <button type="button" class="admin-modal-button-secondary" id="clear-import-button">
+                        Clear
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <section id="import-preview-section" hidden>
+
+                <h2>
+                    Import Preview
+                </h2>
+
+                <div id="import-summary" class="admin-modal-note">
+                </div>
+
+
+                <div class="category-management-table-container">
+
+                    <table class="product-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Product Index
+                                </th>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Unit
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="import-preview-list">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="admin-modal-actions">
+
+                    <button type="button" class="admin-modal-button-success" id="confirm-import-button" disabled>
+                        Confirm Import
+                    </button>
+
+                    <button type="button" class="admin-modal-button-secondary" id="cancel-import-button">
+                        Cancel
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/product-import.js"></script>
+
+</body>
+
+</html>

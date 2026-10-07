@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin History - Baban Yasir Enterprises</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ========================================
+         ADMIN HISTORY
+         ======================================== -->
+
+    <main class="admin-dashboard">
+
+        <section class="category-management" id="history-management">
+
+            <div class="management-header">
+
+                <div>
+
+                    <h2>Admin History</h2>
+
+                    <p>
+                        View records of changes made by administrators.
+                    </p>
+
+                </div>
+
+                <a href="/admin/dashboard.html" class="dashboard-navigation-link">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+            <!-- ========================================
+     HISTORY SEARCH & FILTERS
+     ======================================== -->
+
+            <div class="history-filters">
+
+                <div class="history-search-group">
+
+                    <label for="history-search">
+                        Search History
+                    </label>
+
+                    <input type="search" id="history-search" placeholder="Search admin, product, action..."
+                        autocomplete="off">
+
+                </div>
+
+
+                <div class="history-filter-group">
+
+                    <label for="history-action-filter">
+                        Action
+                    </label>
+
+                    <select id="history-action-filter">
+
+                        <option value="">
+                            All Actions
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="history-filter-group">
+
+                    <label for="history-admin-filter">
+                        Admin
+                    </label>
+
+                    <select id="history-admin-filter">
+
+                        <option value="">
+                            All Admins
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="button" class="admin-btn secondary" id="clear-history-filters">
+                    Clear Filters
+                </button>
+
+            </div>
+
+            <!-- ========================================
+                 HISTORY TABLE
+                 ======================================== -->
+
+            <div class="category-management-table-container">
+
+                <table class="product-table category-management-table history-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Admin</th>
+
+                            <th>Action</th>
+
+                            <th>Product</th>
+
+                            <th>Old Value</th>
+
+                            <th>New Value</th>
+
+                            <th>Date / Time</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="history-list">
+
+                        <!-- History records will be loaded here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/admin-auth.js"></script>
+    <script src="/js/history.js"></script>
+
+</body>
+
+</html>

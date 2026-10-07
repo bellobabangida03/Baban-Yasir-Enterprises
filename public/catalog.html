@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Catalog - BABAN YASIR ENTERPRISES</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="main-nav">
+
+        <div class="nav-brand">
+
+            <strong>BABAN YASIR ENTERPRISES</strong>
+
+            <span class="business-tagline">
+                Sales and Supplies of Building Materials
+            </span>
+
+            <p class="business-contact">
+                Contact: 08023737454, 08020882417
+            </p>
+
+            <p class="business-address">
+                Address: NO. 24 Arch. Namadi Sambo Road, Rigachikun, Kaduna
+            </p>
+
+            <p class="business-registration">
+                CAC Registration No.: BN 2543368
+            </p>
+
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" id="customer-logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <main class="catalog-container">
+
+        <section class="catalog-header">
+
+            <h1>Product Catalog</h1>
+
+            <p>
+                View our current building-material prices.
+            </p>
+
+        </section>
+
+
+        <section class="catalog-controls">
+
+            <div class="search-box">
+
+                <input type="search" id="product-search" placeholder="Search products..." autocomplete="off">
+
+                <button type="button" id="search-button">
+                    Search
+                </button>
+
+            </div>
+
+            <div id="search-suggestions" class="search-suggestions"></div>
+
+            <div class="category-buttons" id="category-buttons" aria-label="Product categories">
+
+                <!-- Categories will be loaded from the server -->
+
+            </div>
+        </section>
+
+
+        <section class="product-table-container">
+
+            <table class="product-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Unit</th>
+                        <th>Price</th>
+                        <th>Last Updated</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="product-list">
+                    <!-- Products will be loaded from the server -->
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="js/catalog.js"></script>
+
+</body>
+
+</html>

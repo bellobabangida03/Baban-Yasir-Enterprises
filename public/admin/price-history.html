@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Price History - Baban Yasir Enterprises</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ========================================
+         PRICE HISTORY
+         ======================================== -->
+
+    <main class="admin-dashboard">
+
+        <section class="category-management" id="price-history-management">
+
+            <div class="management-header">
+
+                <div>
+
+                    <h2>Price History</h2>
+
+                    <p>
+                        View previous prices and price changes for products.
+                    </p>
+
+                </div>
+
+                <a href="/admin/dashboard.html" class="dashboard-navigation-link">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+
+            <!-- ========================================
+                 SEARCH & FILTERS
+                 ======================================== -->
+
+            <div class="history-filters">
+
+                <div class="history-search-group">
+
+                    <label for="price-history-search">
+                        Search Product
+                    </label>
+
+                    <input type="search" id="price-history-search" placeholder="Search product..." autocomplete="off">
+
+                </div>
+
+
+                <div class="history-filter-group">
+
+                    <label for="price-history-category-filter">
+                        Category
+                    </label>
+
+                    <select id="price-history-category-filter">
+
+                        <option value="">
+                            All Categories
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="button" class="admin-btn secondary" id="clear-price-history-filters">
+                    Clear Filters
+                </button>
+
+            </div>
+
+
+            <!-- ========================================
+                 PRICE HISTORY TABLE
+                 ======================================== -->
+
+            <div class="category-management-table-container">
+
+                <table class="product-table category-management-table history-table price-history-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Product</th>
+
+                            <th>Category</th>
+
+                            <th>Unit</th>
+
+                            <th>Previous Price</th>
+
+                            <th>New Price</th>
+
+                            <th>Changed By</th>
+
+                            <th>Date / Time</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="price-history-list">
+
+                        <!-- Price history will be loaded here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/admin-auth.js"></script>
+    <script src="/js/price-history.js"></script>
+
+</body>
+
+</html>

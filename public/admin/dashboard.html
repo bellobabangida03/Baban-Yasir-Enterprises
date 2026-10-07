@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - BABAN YASIR ENTERPRISES</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-brand">
+            BABAN YASIR ENTERPRISES
+        </div>
+
+        <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="#" id="admin-logout">Logout</a>
+        </div>
+    </nav>
+
+
+    <main class="admin-dashboard">
+
+        <section class="dashboard-header">
+
+            <h1>Admin Dashboard</h1>
+
+            <p>
+                Manage products, categories, prices and administrative activities.
+            </p>
+
+        </section>
+
+
+        <section class="dashboard-cards">
+
+            <div class="dashboard-card">
+                <h2>📦 Products</h2>
+                <p>
+                    Add, edit and manage building-material products.
+                </p>
+                <button type="button" class="admin-btn" id="manage-products-button">
+                    Manage Products
+                </button>
+            </div>
+
+
+            <div class="dashboard-card">
+                <h2>🗂️ Categories</h2>
+                <p>
+                    Create and manage product categories.
+                </p>
+                <button type="button" class="admin-btn" id="manage-categories-button">
+                    Manage Categories
+                </button>
+            </div>
+
+            <!--======================================
+             UNITS
+            ======================================== -->
+
+            <div class="dashboard-card">
+
+                <h2>📏 Units</h2>
+
+                <p>
+                    Create and manage product units.
+                </p>
+
+                <button type="button" class="admin-btn" id="manage-units-button">
+                    Manage Units
+                </button>
+
+            </div>
+
+            <div class="dashboard-card">
+                <h2>💰 Price Management</h2>
+                <p>
+                    Update the current prices of products.
+                </p>
+                <button type="button" class="admin-btn" id="manage-prices-button">
+                    Manage Prices
+                </button>
+            </div>
+
+
+            <div class="dashboard-card">
+                <h2>🕒 Price History</h2>
+                <p>
+                    View previous prices and their modification dates.
+                </p>
+                <button type="button" class="admin-btn" id="view-price-history-button">
+                    View Price History
+                </button>
+            </div>
+
+
+            <div class="dashboard-card">
+                <h2>👤 Admin Activity</h2>
+                <p>
+                    View which administrator made changes.
+                </p>
+                <button type="button" class="admin-btn" id="view-admin-activity-button">
+                    View Activity
+                </button>
+            </div>
+
+            <!-- ========================================
+            ADMINISTRATOR MANAGEMENT
+            ======================================== -->
+
+            <div class="dashboard-card" id="administrator-management-card" hidden>
+
+                <h2>👥 Administrators</h2>
+
+                <p>
+                    Add and manage administrator accounts.
+                </p>
+
+                <button type="button" class="admin-btn" id="manage-administrators-button">
+                    Manage Administrators
+                </button>
+
+            </div>
+
+            <!-- =======================================
+            IMPORT PRODUCT
+            ===========================================-->
+            <div class="dashboard-card">
+                <h2>Bulk Product Import</h2>
+
+                <p>
+                    Import multiple products from a CSV file.
+                </p>
+
+                <button type="button" class="admin-btn" onclick="window.location.href='/admin/product-import.html'">
+                    Import Products
+                </button>
+            </div>
+
+        </section>
+
+        <!-- ========================================
+            CATEGORY MANAGEMENT
+        ======================================== -->
+
+        <section class="category-management" id="category-management">
+
+            <div class="management-header">
+
+                <div>
+                    <h2>Category Management</h2>
+
+                    <p>
+                        Add or remove product categories.
+                    </p>
+                </div>
+
+                <button type="button" class="admin-btn" id="add-category-button">
+                    + Add Category
+                </button>
+
+            </div>
+
+
+            <div class="category-management-table-container">
+
+                <table class="product-table category-management-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Category</th>
+                            <th>Products</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="admin-category-list">
+
+                        <!-- Categories will be loaded here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================
+           UNIT MANAGEMENT
+        ======================================== -->
+
+        <section class="category-management" id="unit-management">
+
+            <div class="management-header">
+
+                <div>
+                    <h2>Unit Management</h2>
+
+                    <p>
+                        Add or remove product units used in the catalog.
+                    </p>
+                </div>
+
+                <div class="management-actions">
+
+                    <input type="text" id="new-unit-name" placeholder="Enter unit name to be added"
+                        aria-label="New unit name">
+
+                    <button type="button" class="admin-btn" id="add-unit-button">
+                        + Add Unit
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="category-management-table-container">
+
+                <table class="product-table category-management-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Unit</th>
+
+                            <th>Products</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="unit-list">
+
+                        <!-- Units will be loaded here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================
+        ADMINISTRATOR MANAGEMENT
+        ======================================== -->
+
+        <section class="category-management" id="administrator-management" hidden>
+
+            <div class="management-header">
+
+                <div>
+
+                    <h2>
+                        Administrator Management
+                    </h2>
+
+                    <p>
+                        Create and manage administrator accounts.
+                    </p>
+
+                </div>
+
+                <button type="button" class="admin-btn" id="add-administrator-button">
+                    + Add Administrator
+                </button>
+
+            </div>
+
+
+            <div class="category-management-table-container">
+
+                <table class="product-table category-management-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="administrator-list">
+
+                        <!-- Administrators will be loaded here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================
+     ADMINISTRATOR MANAGEMENT MODAL
+========================================= -->
+
+        <div class="admin-modal" id="administrator-modal" hidden>
+            <div class="admin-modal-content">
+
+                <div class="admin-modal-header">
+                    <div>
+                        <h2 id="administrator-modal-title">
+                            Administrator
+                        </h2>
+
+                        <p id="administrator-modal-description">
+                            Manage administrator account.
+                        </p>
+                    </div>
+
+                    <button type="button" class="admin-modal-close" id="administrator-modal-close" aria-label="Close">
+                        ×
+                    </button>
+                </div>
+
+                <div class="admin-modal-body" id="administrator-modal-body">
+                    <!-- JavaScript will place the appropriate
+                 administrator controls here. -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ========================================
+            PRODUCT MANAGEMENT
+        ======================================== -->
+
+        <section class="product-management" id="product-management">
+
+            <div class="management-header">
+
+                <div>
+                    <h2>Product Management</h2>
+
+                    <p>
+                        Add, edit or remove products from the catalog.
+                    </p>
+                </div>
+
+                <button type="button" class="admin-btn" id="add-product-button">
+                    + Add Product
+                </button>
+
+            </div>
+
+            <!-- ========================================
+                ADD PRODUCT FORM
+            ======================================== -->
+
+            <div class="add-product-form" id="add-product-form">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="new-product-name">
+                            Product Name
+                        </label>
+
+                        <input type="text" id="new-product-name" placeholder="Enter product name" autocomplete="off">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="new-product-category">
+                            Category
+                        </label>
+
+                        <select id="new-product-category">
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="new-product-unit">
+                            Unit
+                        </label>
+
+                        <select id="new-product-unit">
+
+                            <option value="">Select unit</option>
+                            <!-- Units will be loaded from the server -->
+                            <option value="Other">Other...</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="new-product-price">
+                            Price
+                        </label>
+
+                        <input type="number" id="new-product-price" placeholder="Enter price" min="0" step="0.01">
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================================
+                    OTHER CATEGORY / OTHER UNIT
+                ======================================== -->
+
+                <div class="form-row">
+
+                    <div class="form-group" id="other-category-group" hidden>
+
+                        <label for="new-product-other-category">
+                            Enter Category
+                        </label>
+
+                        <input type="text" id="new-product-other-category" placeholder="Example: Bathroom Accessories"
+                            autocomplete="off">
+
+                    </div>
+
+
+                    <div class="form-group" id="other-unit-group" hidden>
+
+                        <label for="new-product-other-unit">
+                            Enter Unit
+                        </label>
+
+                        <input type="text" id="new-product-other-unit" placeholder="Example: Per Carton"
+                            autocomplete="off">
+
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button type="button" class="admin-btn secondary-btn" id="cancel-add-product">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="admin-btn" id="save-new-product">
+                        Add Product
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Product Management Search -->
+
+            <div class="admin-product-search">
+
+                <input type="search" id="admin-product-search" placeholder="Search products, categories or units..."
+                    autocomplete="off">
+
+                <button type="button" id="admin-search-clear" title="Clear search">
+                    ✕
+                </button>
+
+            </div>
+
+            <div class="bulk-actions-toolbar" id="bulk-actions-toolbar" hidden>
+
+                <div class="bulk-selection-info">
+                    <strong id="selected-product-count">0</strong>
+                    product(s) selected
+                </div>
+                <div class="bulk-actions">
+
+                    <button type="button" class="admin-btn" id="bulk-move-category">
+                        Move Category
+                    </button>
+
+                    <button type="button" class="admin-btn" id="bulk-change-unit">
+                        Change Unit
+                    </button>
+
+                    <button type="button" class="admin-btn" id="bulk-change-price">
+                        Change Price
+                    </button>
+
+                    <button type="button" class="admin-btn danger" id="bulk-delete-products">
+                        Delete
+                    </button>
+
+                    <button type="button" class="admin-btn secondary" id="bulk-cancel-selection">
+                        Cancel Selection
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="bulk-dialog" id="bulk-move-dialog" hidden>
+
+                <div class="bulk-dialog-content">
+
+                    <h3>Move Selected Products</h3>
+
+                    <p>
+                        Select the category where the selected products
+                        should be moved.
+                    </p>
+
+                    <label for="bulk-move-category-select">
+                        Category
+                    </label>
+
+                    <select id="bulk-move-category-select">
+                        <option value="">Select category</option>
+                    </select>
+
+                    <div class="bulk-other-category-group" id="bulk-other-category-group" hidden>
+
+                        <label for="bulk-move-other-category">
+                            Enter New Category
+                        </label>
+
+                        <input type="text" id="bulk-move-other-category" placeholder="Example: Bathroom Accessories"
+                            autocomplete="off">
+
+                    </div>
+
+                    <div class="bulk-dialog-actions">
+
+                        <button type="button" class="admin-btn secondary" id="cancel-bulk-move">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="admin-btn" id="confirm-bulk-move">
+                            Move Products
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ========================================
+              BULK CHANGE PRICE DIALOG
+            ======================================== -->
+
+            <div class="bulk-dialog" id="bulk-price-dialog" hidden>
+
+                <div class="bulk-dialog-content">
+
+                    <h3>Change Price</h3>
+
+                    <p>
+                        Enter the new price for all selected products.
+                    </p>
+
+                    <label for="bulk-new-price">
+                        New Price
+                    </label>
+
+                    <input type="number" id="bulk-new-price" placeholder="Enter new price" min="0" step="0.01">
+
+                    <div class="bulk-dialog-actions">
+
+                        <button type="button" class="admin-btn secondary" id="cancel-bulk-price">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="admin-btn" id="confirm-bulk-price">
+                            Change Price
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ========================================
+              BULK CHANGE UNIT DIALOG
+             ======================================== -->
+
+            <div class="bulk-dialog" id="bulk-unit-dialog" hidden>
+
+                <div class="bulk-dialog-content">
+
+                    <h3>Change Unit</h3>
+
+                    <p>
+                        Select the new unit for all selected products.
+                    </p>
+
+                    <label for="bulk-unit-select">
+                        Unit
+                    </label>
+
+                    <select id="bulk-unit-select">
+                        <option value="">Select unit</option>
+                    </select>
+
+                    <div class="bulk-other-unit-group" id="bulk-other-unit-group" hidden>
+
+                        <label for="bulk-other-unit">
+                            Enter New Unit
+                        </label>
+
+                        <input type="text" id="bulk-other-unit" placeholder="Example: Per Carton" autocomplete="off">
+
+                    </div>
+
+                    <div class="bulk-dialog-actions">
+
+                        <button type="button" class="admin-btn secondary" id="cancel-bulk-unit">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="admin-btn" id="confirm-bulk-unit">
+                            Change Unit
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-product-table-container">
+
+                <table class="product-table admin-product-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="select-all-products" title="Select all products">
+                            </th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Unit</th>
+                            <th>Price</th>
+                            <th>Last Updated</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="admin-product-list">
+                        <!-- Products will be loaded here -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/js/admin-auth.js"></script>
+    <script src="/js/admin-dashboard.js"></script>
+    <script src="/js/administrator-management.js"></script>
+
+</body>
+
+</html>
